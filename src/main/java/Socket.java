@@ -21,7 +21,7 @@ public class Socket {
 
     @OnOpen
     public void onOpen(Session session) throws IOException {
-        LOGGER.log(Level.INFO, "New connection with client: {0}", session.getRequestURI()
+        LOGGER.log(Level.INFO, "New connection with client: {0}", session.getRequestURI().getPort()
                 );
     }
 
