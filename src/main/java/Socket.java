@@ -21,8 +21,7 @@ public class Socket {
 
     @OnOpen
     public void onOpen(Session session) throws IOException {
-        session.getPathParameters();
-        LOGGER.log(Level.INFO, "New connection with client: {0}", session.getRequestURI().getRawPath()
+        LOGGER.log(Level.INFO, "New connection with client: {0}", session.getRequestURI()
                 );
     }
 
