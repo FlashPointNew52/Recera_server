@@ -20,9 +20,8 @@ public class Socket {
 
     @OnOpen
     public void onOpen(Session session)  {
-        System.out.println("Host:" + session.getRequestURI().getHost());
         LOGGER.log(Level.INFO, "New connection with client: {0}",
-                session.getRequestURI().getHost());
+                session);
     }
 
     @OnMessage
