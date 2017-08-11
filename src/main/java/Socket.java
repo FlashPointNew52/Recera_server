@@ -22,7 +22,7 @@ public class Socket {
     public void onOpen(Session session) {
 
         LOGGER.log(Level.INFO, "New connection with client: {0}",
-                session.getPathParameters());
+                session.getRequestParameterMap());
     }
 
     @OnMessage
