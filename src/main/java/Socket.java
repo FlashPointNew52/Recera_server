@@ -1,6 +1,7 @@
 /**
  * Created by Eugenu Modenov on 11.08.2017.
  */
+import java.io.IOException;
 import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,9 +20,10 @@ public class Socket {
             Logger.getLogger(Socket.class.getName());
 
     @OnOpen
-    public void onOpen(Session session)  {
-        LOGGER.log(Level.INFO, "New connection with client: {0}",
-                session);
+    public void onOpen(Session session) throws IOException {
+        session.getPathParameters();
+        LOGGER.log(Level.INFO, "New connection with client: {0}", session.getRequestURI().getRawPath()
+                );
     }
 
     @OnMessage
