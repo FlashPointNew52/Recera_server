@@ -1,6 +1,5 @@
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.util.HashSet;
 
 import org.glassfish.tyrus.server.Server;
 /**
@@ -12,7 +11,7 @@ public class Recera_server {
     }
 
     public static void runServer() {
-        Server server = new Server("127.0.0.1", 48000, "/", Socket.class);
+        Server server = new Server("127.0.0.1", 48000, "/", Server_socket.class);
 
         try {
             server.start();
