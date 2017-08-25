@@ -17,7 +17,7 @@ import javax.websocket.server.ServerEndpoint;
 @ServerEndpoint(value = "/")
 
 public class Server_socket {
-    private Map<String, Session> clients = new HashMap<String, Session>();
+    private static Map<String, Session> clients = new HashMap<String, Session>();
     private static final Logger LOGGER =
             Logger.getLogger(Server_socket.class.getName());
 
