@@ -28,13 +28,13 @@ public class Server_socket {
     }
 
     @OnMessage
-    public String onMessage(String message, Session session) throws IOException {
+    public void onMessage(String message, Session session) throws IOException {
         LOGGER.log(Level.INFO, "New message");
         for (Map.Entry<String, Session> entry : clients.entrySet()) {
-            LOGGER.log(Level.WARNING, "client {0}:", entry.getValue().getId() );
-            entry.getValue().getBasicRemote().sendText(message);
+            if(entry.getKey() !=  session.getId())
+                entry.getValue().getBasicRemote().sendText(message);
         }
-        return "";
+        //return "";
     }
 
     @OnClose
