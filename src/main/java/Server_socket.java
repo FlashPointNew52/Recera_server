@@ -24,13 +24,14 @@ public class Server_socket {
     @OnOpen
     public void onOpen(Session session, EndpointConfig config) throws IOException {
         clients.put(session.getId(), session);
-        LOGGER.log(Level.INFO, "New connection with client: {0}");
+        LOGGER.log(Level.INFO, "New connection with client");
     }
 
     @OnMessage
     public String onMessage(String message, Session session) throws IOException {
-        LOGGER.log(Level.INFO, "New message from Client [{0}]: {1}", new Object[] {session.getOpenSessions(), message});
+        LOGGER.log(Level.INFO, "New message");
         for (Map.Entry<String, Session> entry : clients.entrySet()) {
+            LOGGER.log(Level.WARNING, "client {0}:", entry.getValue().getId() );
             entry.getValue().getBasicRemote().sendText(message);
         }
         return "";
