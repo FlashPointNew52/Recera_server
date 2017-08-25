@@ -33,11 +33,11 @@ public class Server_socket {
     }
 
     @OnMessage
-    public String onMessage(String message, Session session) {
+    public String onMessage(String message, Session session) throws IOException {
         LOGGER.log(Level.INFO, "New message from Client [{0}]: {1}",
                 new Object[] {session.getOpenSessions(), message});
         for (Map.Entry<String, Session> entry : clients.entrySet()) {
-            entry.getValue().getAsyncRemote().sendText(message);
+            entry.getValue().getBasicRemote().sendText(message);
         }
        return "";
     }
